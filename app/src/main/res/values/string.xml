@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bluescope</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected to:</string>
+    <string name="title_not_connected">not connected</string>
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="button_connect">Connect</string>
+    <string name="status_label">Status</string>
+    <string name="status_off">run</string>
+    <string name="status_on">pause</string>
+    <string name="ch1_scale_default">200mV</string>
+    <string name="ch2_scale_default">500mV</string>
+    <string name="timebase_default">200us</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="action_settings">Action</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Oscilloscope.</string>
+</resources>

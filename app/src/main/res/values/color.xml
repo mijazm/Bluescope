@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#c03f7fff</color>
+    <color name="ch1_color">#ffffff00</color>
+    <color name="ch2_color">#ffff0000</color>
+    <color name="label_color">#ff3fff3f</color>
+    <color name="timebase_color">#ffff7f1f</color>
+    <color name="status_color">#ffffffff</color>
+</resources>
