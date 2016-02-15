@@ -264,12 +264,19 @@ public class BluetoothActivity extends Activity implements View.OnClickListener,
         }catch (IOException e) { }
 
         try {
+            if(mmSocket != null)
             mmSocket.connect();
         }catch (IOException e) {}
 
         try {
-            mmOutputStream = mmSocket.getOutputStream();
-            mmInputStream = mmSocket.getInputStream();
+            if(mmSocket != null) {
+                mmOutputStream = mmSocket.getOutputStream();
+                mmInputStream = mmSocket.getInputStream();
+                Toast.makeText(this, "Please Turn on Bluetooth", Toast.LENGTH_SHORT).show();
+            }
+            else{
+
+            }
             }catch (IOException e) { }
 
         bready = true;

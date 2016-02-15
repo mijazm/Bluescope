@@ -14,7 +14,7 @@ public class WaveformView extends SurfaceView implements SurfaceHolder.Callback{
     private int time_setting = 1;
 
     private final int width = 512;
-    private final int heigth = 255;
+    private final int height = 255;
 
     private static int[] ch1_data = new int[1024];
     private static int ch1_pos = 127;
@@ -84,7 +84,7 @@ public class WaveformView extends SurfaceView implements SurfaceHolder.Callback{
         while(x<width){
             if(x<(data1.length)){
                 //ch1_data[x] = data1[x];
-                ch1_data[x] = heigth-data1[x]+1;
+                ch1_data[x] = height-data1[x]+1;
             }else{
                 ch1_data[x] = ch1_pos;
             }
@@ -101,38 +101,40 @@ public class WaveformView extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     public void PlotPoints(Canvas canvas){
-
+    try {
         // clear screen
         canvas.drawColor(Color.rgb(20, 20, 20));
 
         // draw grids
-        for(int vertical = 1; vertical<10; vertical++){
+        for (int vertical = 1; vertical < 10; vertical++) {
             canvas.drawLine(
-                    vertical*(width/10)+1, 1,
-                    vertical*(width/10)+1, heigth+1,
+                    vertical * (width / 10) + 1, 1,
+                    vertical * (width / 10) + 1, height + 1,
                     grid_paint);
         }
-        for(int horizontal = 1; horizontal<10; horizontal++){
+        for (int horizontal = 1; horizontal < 10; horizontal++) {
             canvas.drawLine(
-                    1, horizontal*(heigth/10)+1,
-                    width+1, horizontal*(heigth/10)+1,
+                    1, horizontal * (height / 10) + 1,
+                    width + 1, horizontal * (height / 10) + 1,
                     grid_paint);
         }
 
         // draw center cross
-        canvas.drawLine(0, (heigth/2)+1, width+1, (heigth/2)+1, cross_paint);
-        canvas.drawLine((width/2)+1, 0, (width/2)+1, heigth+1, cross_paint);
+        canvas.drawLine(0, (height / 2) + 1, width + 1, (height / 2) + 1, cross_paint);
+        canvas.drawLine((width / 2) + 1, 0, (width / 2) + 1, height + 1, cross_paint);
 
         // draw outline
-        canvas.drawLine(0, 0, (width+1), 0, outline_paint);	// top
-        canvas.drawLine((width+1), 0, (width+1), (heigth+1), outline_paint); //right
-        canvas.drawLine(0, (heigth+1), (width+1), (heigth+1), outline_paint); // bottom
-        canvas.drawLine(0, 0, 0, (heigth+1), outline_paint); //left
+        canvas.drawLine(0, 0, (width + 1), 0, outline_paint);    // top
+        canvas.drawLine((width + 1), 0, (width + 1), (height + 1), outline_paint); //right
+        canvas.drawLine(0, (height + 1), (width + 1), (height + 1), outline_paint); // bottom
+        canvas.drawLine(0, 0, 0, (height + 1), outline_paint); //left
 
         // plot data
-        for(int x=0; x<(width-1); x+=time_setting){
-            canvas.drawLine(x+1, ch1_data[x], x+2, ch1_data[x+1], ch1_color);
+        for (int x = 0; x < (width - 1); x += time_setting) {
+            canvas.drawLine(x + 1, ch1_data[x], x + 2, ch1_data[x + 1], ch1_color);
         }
+    }
+    catch (NullPointerException e){}
     }
 
 }
